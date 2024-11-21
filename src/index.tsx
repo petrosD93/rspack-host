@@ -1,2 +1,2 @@
 
-import ('./bootstarp.tsx')
+import ('./bootstrap.tsx')

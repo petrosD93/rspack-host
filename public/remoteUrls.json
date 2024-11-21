@@ -1,0 +1,25 @@
+{
+  "domain": "mydomain.com",
+  "remotes": [
+    {
+      "name": "remote",
+      "alias": "remote",
+      "subdomainUri": "localhost",
+      "urlOverride":"http://localhost:3001",
+      "filename": "remoteAppEntry.js",
+      "modules": [
+        {
+          "name": "remoteGetItem",
+          "value": "./getItem",
+          "type": "function",
+          "preload": true
+        },
+        {
+          "name": "remoteButton",
+          "value": "./button",
+          "type": "component"
+        }
+      ]
+    }
+  ]
+}

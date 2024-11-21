@@ -4,6 +4,7 @@ const { pluginSass } = require('@rsbuild/plugin-sass')
 const path = require('node:path')
 const { pluginModuleFederation } =  require('@module-federation/rsbuild-plugin')
 const mfConfig = require('./mfconfig')
+const { ModuleFederationPlugin } = require('@module-federation/enhanced/rspack');
 
 module.exports = {
   plugins: [
@@ -15,7 +16,7 @@ module.exports = {
         },
       },
     }),
-    pluginModuleFederation(mfConfig)
+    // pluginModuleFederation(mfConfig)
   ],
   html: {
     template: path.resolve(process.cwd(), 'public/index.html'),
@@ -26,6 +27,9 @@ module.exports = {
   },
   tools: {
     rspack: {
+      plugins:[
+        new ModuleFederationPlugin(mfConfig),
+      ],
       output: {
         publicPath: 'auto',
       },
